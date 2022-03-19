@@ -6,7 +6,7 @@ import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.List;
 
-public interface RmiApplication extends Remote {
+public interface SoundCarrierService extends Remote {
     public List<SoundCarrierDTO> allSoundCarriers() throws RemoteException;
 
     public List<SoundCarrierDTO> soundCarriersByAlbumName(String album) throws RemoteException;
