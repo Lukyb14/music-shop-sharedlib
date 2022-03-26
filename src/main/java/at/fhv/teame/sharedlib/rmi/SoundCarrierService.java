@@ -12,4 +12,10 @@ public interface SoundCarrierService extends Remote {
     List<SoundCarrierDTO> soundCarriersByArtistName(String artist, int pageNr) throws RemoteException;
 
     List<SoundCarrierDTO> soundCarriersBySongName(String album, int pageNr) throws RemoteException;
+
+    int numberOfSoundCarriersByAlbumName(String album) throws RemoteException;
+
+    int numberOfSoundCarriersByArtistName(String album) throws RemoteException;
+
+    int numberOfSoundCarriersBySongName(String album) throws RemoteException;
 }
