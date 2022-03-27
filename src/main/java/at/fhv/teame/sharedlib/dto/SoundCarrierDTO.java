@@ -1,6 +1,7 @@
 package at.fhv.teame.sharedlib.dto;
 
 import java.io.Serializable;
+import java.util.Arrays;
 import java.util.Objects;
 
 public class SoundCarrierDTO implements Serializable {
@@ -8,35 +9,56 @@ public class SoundCarrierDTO implements Serializable {
     private static final long serialVersionUID = 6529685098267757690L;
 
     //SoundCarrier
+    private String articleId;
     private String medium;
     private String price;
     private int stock;
+
     //Album
     private String albumName;
+    private String label;
+    private String genre;
+    private String artist;
     private SongDTO[] songs;
     
     public static Builder builder() {
         return new Builder();
     }
 
-    public String medium(){
-        return this.medium;
+    public String getArticleId() {
+        return articleId;
     }
 
-    public String price() {
-        return this.price;
+    public String getMedium() {
+        return medium;
     }
 
-    public int stock() {
-        return this.stock;
+    public String getPrice() {
+        return price;
     }
 
-    public String albumName() {
-        return this.albumName;
+    public int getStock() {
+        return stock;
     }
 
-    public SongDTO[] songs() {
-        return this.songs;
+    public String getAlbumName() {
+        return albumName;
+    }
+
+    public String getArtist() {
+        return artist;
+    }
+
+    public String getLabel() {
+        return label;
+    }
+
+    public String getGenre() {
+        return genre;
+    }
+
+    public SongDTO[] getSongs() {
+        return songs;
     }
 
     private SoundCarrierDTO() {}
@@ -48,25 +70,32 @@ public class SoundCarrierDTO implements Serializable {
             this.instance = new SoundCarrierDTO();
         }
 
-        public Builder withSoundCarrierEntity(String medium, String price, int stock){
+        public Builder withSoundCarrierEntity(String articleId,String medium, String price, int stock){
+            this.instance.articleId = articleId;
             this.instance.medium = medium;
             this.instance.price = price;
             this.instance.stock = stock;
-
             return this;
         }
 
-        public Builder withAlbumEntity(String name, SongDTO[] songs) {
-            this.instance.albumName = name;
+        public Builder withAlbumEntity(String albumName, String label, String genre, String artist, SongDTO[] songs) {
+            this.instance.albumName = albumName;
+            this.instance.label = label;
+            this.instance.genre = genre;
             this.instance.songs = songs;
-
+            this.instance.artist = artist;
             return this;
         }
         
         public SoundCarrierDTO build(){
+            Objects.requireNonNull(this.instance.articleId, "articleId must be set in SoundCarrierDTO");
             Objects.requireNonNull(this.instance.medium, "medium must be set in SoundCarrierDTO");
             Objects.requireNonNull(this.instance.price, "price must be set in SoundCarrierDTO");
+            Objects.requireNonNull(this.instance.stock, "stock must be set in SoundCarrierDTO");
             Objects.requireNonNull(this.instance.albumName, "albumName must be set in SoundCarrierDTO");
+            Objects.requireNonNull(this.instance.label, "label must be set in SoundCarrierDTO");
+            Objects.requireNonNull(this.instance.genre, "genre must be set in SoundCarrierDTO");
+            Objects.requireNonNull(this.instance.artist, "artist must be set in SoundCarrierDTO");
             Objects.requireNonNull(this.instance.songs, "songs must be set in SoundCarrierDTO");
             
             return this.instance;
@@ -78,11 +107,13 @@ public class SoundCarrierDTO implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         SoundCarrierDTO that = (SoundCarrierDTO) o;
-        return stock == that.stock && medium.equals(that.medium) && price.equals(that.price) && albumName.equals(that.albumName);
+        return stock == that.stock && Objects.equals(articleId, that.articleId) && Objects.equals(medium, that.medium) && Objects.equals(price, that.price) && Objects.equals(albumName, that.albumName) && Objects.equals(label, that.label) && Objects.equals(genre, that.genre) && Arrays.equals(songs, that.songs);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(medium, price, stock, albumName);
+        int result = Objects.hash(articleId, medium, price, stock, albumName, label, genre);
+        result = 31 * result + Arrays.hashCode(songs);
+        return result;
     }
 }
