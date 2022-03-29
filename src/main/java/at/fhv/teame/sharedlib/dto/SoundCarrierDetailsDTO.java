@@ -1,9 +1,11 @@
 package at.fhv.teame.sharedlib.dto;
 
 import java.io.Serializable;
+import java.util.Arrays;
 import java.util.Objects;
 
-public class SoundCarrierDTO implements Serializable {
+public class SoundCarrierDetailsDTO implements Serializable {
+
     private static final long serialVersionUID = 6529685098267757690L;
 
     //SoundCarrier
@@ -11,15 +13,16 @@ public class SoundCarrierDTO implements Serializable {
     private String medium;
     private String price;
     private int stock;
-    private int nrOfSongs;
 
     //Album
     private String albumName;
-    private String artist;
+    private String label;
     private String genre;
-
-    public static SoundCarrierDTO.Builder builder() {
-        return new SoundCarrierDTO.Builder();
+    private String artist;
+    private SongDTO[] songs;
+    
+    public static Builder builder() {
+        return new Builder();
     }
 
     public String getArticleId() {
@@ -46,48 +49,55 @@ public class SoundCarrierDTO implements Serializable {
         return artist;
     }
 
+    public String getLabel() {
+        return label;
+    }
+
     public String getGenre() {
         return genre;
     }
 
-    public int getNrOfSongs() {
-        return nrOfSongs;
+    public SongDTO[] getSongs() {
+        return songs;
     }
 
-    private SoundCarrierDTO() {}
+    private SoundCarrierDetailsDTO() {}
 
     public static class Builder {
-        private final SoundCarrierDTO instance;
+        private final SoundCarrierDetailsDTO instance;
 
         private Builder() {
-            this.instance = new SoundCarrierDTO();
+            this.instance = new SoundCarrierDetailsDTO();
         }
 
-        public SoundCarrierDTO.Builder withSoundCarrierEntity(String articleId, String medium, String price, int stock, int nrOfSongs){
+        public Builder withSoundCarrierEntity(String articleId,String medium, String price, int stock){
             this.instance.articleId = articleId;
             this.instance.medium = medium;
             this.instance.price = price;
             this.instance.stock = stock;
-            this.instance.nrOfSongs = nrOfSongs;
             return this;
         }
 
-        public SoundCarrierDTO.Builder withAlbumEntity(String albumName, String artist, String genre) {
+        public Builder withAlbumEntity(String albumName, String label, String genre, String artist, SongDTO[] songs) {
             this.instance.albumName = albumName;
-            this.instance.artist = artist;
+            this.instance.label = label;
             this.instance.genre = genre;
+            this.instance.songs = songs;
+            this.instance.artist = artist;
             return this;
         }
-
-        public SoundCarrierDTO build(){
+        
+        public SoundCarrierDetailsDTO build(){
             Objects.requireNonNull(this.instance.articleId, "articleId must be set in SoundCarrierDTO");
             Objects.requireNonNull(this.instance.medium, "medium must be set in SoundCarrierDTO");
             Objects.requireNonNull(this.instance.price, "price must be set in SoundCarrierDTO");
             Objects.requireNonNull(this.instance.stock, "stock must be set in SoundCarrierDTO");
-            Objects.requireNonNull(this.instance.nrOfSongs, "nrOfSongs must be set in SoundCarrierDTO");
             Objects.requireNonNull(this.instance.albumName, "albumName must be set in SoundCarrierDTO");
-            Objects.requireNonNull(this.instance.artist, "artist must be set in SoundCarrierDTO");
+            Objects.requireNonNull(this.instance.label, "label must be set in SoundCarrierDTO");
             Objects.requireNonNull(this.instance.genre, "genre must be set in SoundCarrierDTO");
+            Objects.requireNonNull(this.instance.artist, "artist must be set in SoundCarrierDTO");
+            Objects.requireNonNull(this.instance.songs, "songs must be set in SoundCarrierDTO");
+            
             return this.instance;
         }
     }
@@ -96,12 +106,14 @@ public class SoundCarrierDTO implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        SoundCarrierDTO that = (SoundCarrierDTO) o;
-        return stock == that.stock && nrOfSongs == that.nrOfSongs && Objects.equals(articleId, that.articleId) && Objects.equals(medium, that.medium) && Objects.equals(price, that.price) && Objects.equals(albumName, that.albumName) && Objects.equals(artist, that.artist) && Objects.equals(genre, that.genre);
+        SoundCarrierDetailsDTO that = (SoundCarrierDetailsDTO) o;
+        return stock == that.stock && Objects.equals(articleId, that.articleId) && Objects.equals(medium, that.medium) && Objects.equals(price, that.price) && Objects.equals(albumName, that.albumName) && Objects.equals(label, that.label) && Objects.equals(genre, that.genre) && Arrays.equals(songs, that.songs);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(articleId, medium, price, stock, nrOfSongs, albumName, artist, genre);
+        int result = Objects.hash(articleId, medium, price, stock, albumName, label, genre);
+        result = 31 * result + Arrays.hashCode(songs);
+        return result;
     }
 }

@@ -1,6 +1,7 @@
 package at.fhv.teame.sharedlib.rmi;
 
 import at.fhv.teame.sharedlib.dto.SoundCarrierDTO;
+import at.fhv.teame.sharedlib.dto.SoundCarrierDetailsDTO;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;
@@ -13,9 +14,11 @@ public interface SearchSoundCarrierService extends Remote {
 
     List<SoundCarrierDTO> soundCarriersBySongName(String album, int pageNr) throws RemoteException;
 
-    int numberOfSoundCarriersByAlbumName(String album) throws RemoteException;
+    int totResultsByAlbumName(String album) throws RemoteException;
 
-    int numberOfSoundCarriersByArtistName(String album) throws RemoteException;
+    int totResultsByArtistName(String album) throws RemoteException;
 
-    int numberOfSoundCarriersBySongName(String album) throws RemoteException;
+    int totResultsBySongName(String album) throws RemoteException;
+
+    SoundCarrierDetailsDTO soundCarrierDetailsByArticleId(String articleId) throws RemoteException;
 }
