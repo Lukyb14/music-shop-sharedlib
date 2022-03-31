@@ -3,6 +3,18 @@ plugins {
     id 'maven-publish'
 }
 
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            groupId = 'at.fhv.teame'
+            artifactId = 'music-shop-sharedlib'
+            version = '1.0.0'
+
+            from components.java
+        }
+    }
+}
+
 group 'at.fhv.teame.sharedlib'
 
 repositories {
