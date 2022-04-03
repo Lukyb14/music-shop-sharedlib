@@ -9,16 +9,16 @@ public class CustomerDTO implements Serializable {
 
     private static final long serialVersionUID = 6529685098267757690L;
 
-    private String lastname;
-    private String firstname;
+    private String familyName;
+    private String givenName;
     private LocalDate birthDate;
     private String address;
 
     public static CustomerDTO.Builder builder(){return new Builder();}
 
-    public String getSurname(){return lastname;}
+    public String getFamilyName(){return familyName;}
 
-    public String getFirstname(){return  firstname;}
+    public String getGivenName(){return  givenName;}
 
     public LocalDate getBirthdate(){return birthDate;}
 
@@ -31,17 +31,17 @@ public class CustomerDTO implements Serializable {
 
         private Builder() {this.instance = new CustomerDTO();}
 
-        public CustomerDTO.Builder withCustomerEntity(String lastname, String firstname, LocalDate birthDate, String address){
-            this.instance.lastname = lastname;
-            this.instance.firstname = firstname;
+        public CustomerDTO.Builder withCustomerEntity(String familyName, String givenName, LocalDate birthDate, String address){
+            this.instance.familyName = familyName;
+            this.instance.givenName = givenName;
             this.instance.birthDate = birthDate;
             this.instance.address = address;
             return this;
         }
 
         public CustomerDTO build(){
-            Objects.requireNonNull(this.instance.lastname, "lastname must be set in CustomerDTO");
-            Objects.requireNonNull(this.instance.firstname, "firstname must be set in CustomerDTO");
+            Objects.requireNonNull(this.instance.familyName, "familyName must be set in CustomerDTO");
+            Objects.requireNonNull(this.instance.givenName, "givenName must be set in CustomerDTO");
             Objects.requireNonNull(this.instance.birthDate, "birthDate must be set in CustomerDTO");
             Objects.requireNonNull(this.instance.address, "address must be set in CustomerDTO");
             return this.instance;
@@ -53,11 +53,11 @@ public class CustomerDTO implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         CustomerDTO that = (CustomerDTO) o;
-        return lastname.equals(that.lastname) && firstname.equals(that.firstname) && birthDate.equals(that.birthDate) && address.equals(that.address);
+        return Objects.equals(familyName, that.familyName) && Objects.equals(givenName, that.givenName) && Objects.equals(birthDate, that.birthDate) && Objects.equals(address, that.address);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(lastname, firstname, birthDate, address);
+        return Objects.hash(familyName, givenName, birthDate, address);
     }
 }
