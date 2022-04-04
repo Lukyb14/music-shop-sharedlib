@@ -9,5 +9,5 @@ import java.util.Map;
 
 public interface PurchaseSoundCarrierService extends Remote {
 
-    void confirmPurchase(Map<String, Integer> shoppingCartItems, String paymentMethod, BigDecimal totalPrice) throws PurchaseFailedException, RemoteException;
+    void confirmPurchase(Map<String, Integer> shoppingCartItems, String paymentMethod) throws PurchaseFailedException, RemoteException;
 }
