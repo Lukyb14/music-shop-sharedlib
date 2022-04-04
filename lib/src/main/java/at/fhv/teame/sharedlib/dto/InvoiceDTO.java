@@ -18,16 +18,8 @@ public class InvoiceDTO {
     private String customerLastName;
     private String customerAddress;
 
-    // Items Entity
-    private List<String> articleIds;
-    private List<String> artistNames;
-    private List<String> albums;
-    private List<String> media;
-    private List<Integer> quantities;
-    private List<Integer> amountOfReturnableItems;
-    private List<Integer> amountOfReturnedItems;
-    private List<String> prices;
-
+    // InvoiceLine Entity
+    private List<InvoiceLineDTO> invoiceLineItems;
 
     public static Builder builder() {
         return new Builder();
@@ -65,38 +57,6 @@ public class InvoiceDTO {
         return customerAddress;
     }
 
-    public List<String> getArticleIds() {
-        return articleIds;
-    }
-
-    public List<String> getArtistNames() {
-        return artistNames;
-    }
-
-    public List<String> getAlbums() {
-        return albums;
-    }
-
-    public List<String> getMedia() {
-        return media;
-    }
-
-    public List<Integer> getQuantities() {
-        return quantities;
-    }
-
-    public List<Integer> getAmountOfReturnableItems() {
-        return amountOfReturnableItems;
-    }
-
-    public List<Integer> getAmountOfReturnedItems() {
-        return amountOfReturnedItems;
-    }
-
-    public List<String> getPrices() {
-        return prices;
-    }
-
     private InvoiceDTO() {
     }
 
@@ -125,21 +85,6 @@ public class InvoiceDTO {
             return this;
         }
 
-        public Builder withItemsEntity(List<String> articleIds, List<String> artistNames, List<String> albums,
-                                       List<String> media, List<Integer> quantities,
-                                       List<Integer> amountOfReturnableItems, List<Integer> amountOfReturnedItems,
-                                       List<String> prices) {
-            this.instance.articleIds = articleIds;
-            this.instance.artistNames = artistNames;
-            this.instance.albums = albums;
-            this.instance.media = media;
-            this.instance.quantities = quantities;
-            this.instance.amountOfReturnableItems = amountOfReturnableItems;
-            this.instance.amountOfReturnedItems = amountOfReturnedItems;
-            this.instance.prices = prices;
-            return this;
-        }
-
         public InvoiceDTO build() {
             Objects.requireNonNull(this.instance.invoiceId, "invoiceId must be set in InvoiceDTO");
             Objects.requireNonNull(this.instance.purchaseDate, "purchaseDate must be set in InvoiceDTO");
@@ -149,14 +94,6 @@ public class InvoiceDTO {
             Objects.requireNonNull(this.instance.customerFirstName, "customerFirstName must be set in InvoiceDTO");
             Objects.requireNonNull(this.instance.customerLastName, "customerLastName must be set in InvoiceDTO");
             Objects.requireNonNull(this.instance.customerAddress, "customerAddress must be set in InvoiceDTO");
-            Objects.requireNonNull(this.instance.articleIds, "articleIds must be set in InvoiceDTO");
-            Objects.requireNonNull(this.instance.artistNames, "artistNames must be set in InvoiceDTO");
-            Objects.requireNonNull(this.instance.albums, "albums must be set in InvoiceDTO");
-            Objects.requireNonNull(this.instance.media, "media must be set in InvoiceDTO");
-            Objects.requireNonNull(this.instance.quantities, "quantities must be set in InvoiceDTO");
-            Objects.requireNonNull(this.instance.amountOfReturnableItems, "amountOfReturnableItems must be set in InvoiceDTO");
-            Objects.requireNonNull(this.instance.amountOfReturnedItems, "amountOfReturnedItems must be set in InvoiceDTO");
-            Objects.requireNonNull(this.instance.prices, "prices must be set in InvoiceDTO");
 
             return this.instance;
         }
@@ -175,21 +112,12 @@ public class InvoiceDTO {
                 && Objects.equals(customerFirstName, that.customerFirstName)
                 && Objects.equals(customerLastName, that.customerLastName)
                 && Objects.equals(customerAddress, that.customerAddress)
-                && Objects.equals(articleIds, that.articleIds)
-                && Objects.equals(artistNames, that.artistNames)
-                && Objects.equals(albums, that.albums)
-                && Objects.equals(media, that.media)
-                && Objects.equals(quantities, that.quantities)
-                && Objects.equals(amountOfReturnableItems, that.amountOfReturnableItems)
-                && Objects.equals(amountOfReturnedItems, that.amountOfReturnedItems)
-                && Objects.equals(prices, that.prices);
+                && Objects.equals(invoiceLineItems, that.invoiceLineItems);
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(invoiceId, purchaseDate, paymentMethod, currentRefundable,
-                totalRefundable, customerFirstName, customerLastName, customerAddress,
-                articleIds, artistNames, albums, media, quantities, amountOfReturnableItems,
-                amountOfReturnedItems, prices);
+                totalRefundable, customerFirstName, customerLastName, customerAddress, invoiceLineItems);
     }
 }
