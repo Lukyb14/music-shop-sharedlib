@@ -12,14 +12,12 @@ public class InvoiceDTO {
     private String paymentMethod;
     private String currentRefundable;
     private String totalRefundable;
+    private List<InvoiceLineDTO> invoiceLineItems;
 
     // Customer Entity
     private String customerFirstName;
     private String customerLastName;
     private String customerAddress;
-
-    // InvoiceLine Entity
-    private List<InvoiceLineDTO> invoiceLineItems;
 
     public static Builder builder() {
         return new Builder();
@@ -68,12 +66,14 @@ public class InvoiceDTO {
         }
 
         public Builder withInvoiceEntity(String invoiceId, String purchaseDate, String paymentMethod,
-                                         String currentRefundable, String totalRefundable) {
+                                         String currentRefundable, String totalRefundable,
+                                         List<InvoiceLineDTO> invoiceLineItems) {
             this.instance.invoiceId = invoiceId;
             this.instance.purchaseDate = purchaseDate;
             this.instance.paymentMethod = paymentMethod;
             this.instance.currentRefundable = currentRefundable;
             this.instance.totalRefundable = totalRefundable;
+            this.instance.invoiceLineItems = invoiceLineItems;
             return this;
         }
 
@@ -85,12 +85,26 @@ public class InvoiceDTO {
             return this;
         }
 
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
+            Builder builder = (Builder) o;
+            return Objects.equals(instance, builder.instance);
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(instance);
+        }
+
         public InvoiceDTO build() {
             Objects.requireNonNull(this.instance.invoiceId, "invoiceId must be set in InvoiceDTO");
             Objects.requireNonNull(this.instance.purchaseDate, "purchaseDate must be set in InvoiceDTO");
             Objects.requireNonNull(this.instance.paymentMethod, "paymentMethod must be set in InvoiceDTO");
             Objects.requireNonNull(this.instance.currentRefundable, "currentRefundable must be set in InvoiceDTO");
             Objects.requireNonNull(this.instance.totalRefundable, "totalRefundable must be set in InvoiceDTO");
+            Objects.requireNonNull(this.instance.invoiceLineItems, "invoiceLineItems must be set in InvoiceDTO");
             Objects.requireNonNull(this.instance.customerFirstName, "customerFirstName must be set in InvoiceDTO");
             Objects.requireNonNull(this.instance.customerLastName, "customerLastName must be set in InvoiceDTO");
             Objects.requireNonNull(this.instance.customerAddress, "customerAddress must be set in InvoiceDTO");
