@@ -11,4 +11,8 @@ public interface SearchCustomerService extends Remote {
     List<CustomerDTO> getCustomerByFullName(String givenName, String familyName) throws RemoteException;
 
     List<CustomerDTO> getCustomerByFamilyName(String familyName) throws RemoteException;
+
+    int totResultsByFullName(String fullName) throws RemoteException;
+
+    int totResultsByFamilyName(String givenName, String familyName) throws RemoteException;
 }
