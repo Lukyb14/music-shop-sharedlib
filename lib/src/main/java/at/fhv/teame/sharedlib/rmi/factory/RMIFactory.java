@@ -15,5 +15,5 @@ public interface RMIFactory extends Remote {
 
     SearchCustomerService createSearchCustomerServiceImpl() throws RemoteException;
 
-    SearchInvoiceService searchInvoiceServiceImpl() throws RemoteException;
+    SearchInvoiceService createSearchInvoiceServiceImpl() throws RemoteException;
 }
