@@ -10,8 +10,8 @@ public class InvoiceLineDTO {
     private String album;
     private String medium;
     private int quantity;
-    private int amountOfReturnableItem;
-    private int amountOfReturnedItem;
+    private int amountOfReturnableItems;
+    private int amountOfReturnedItems;
     private String price;
 
     public static Builder builder() {
@@ -38,12 +38,12 @@ public class InvoiceLineDTO {
         return quantity;
     }
 
-    public int getAmountOfReturnableItem() {
-        return amountOfReturnableItem;
+    public int getAmountOfReturnableItems() {
+        return amountOfReturnableItems;
     }
 
-    public int getAmountOfReturnedItem() {
-        return amountOfReturnedItem;
+    public int getAmountOfReturnedItems() {
+        return amountOfReturnedItems;
     }
 
     public String getPrice() {
@@ -70,8 +70,8 @@ public class InvoiceLineDTO {
             this.instance.album = album;
             this.instance.medium = medium;
             this.instance.quantity = quantity;
-            this.instance.amountOfReturnableItem = amountOfReturnableItem;
-            this.instance.amountOfReturnedItem = amountOfReturnedItem;
+            this.instance.amountOfReturnableItems = amountOfReturnableItem;
+            this.instance.amountOfReturnedItems = amountOfReturnedItem;
             this.instance.price = price;
             return this;
         }
@@ -93,8 +93,8 @@ public class InvoiceLineDTO {
         if (o == null || getClass() != o.getClass()) return false;
         InvoiceLineDTO that = (InvoiceLineDTO) o;
         return quantity == that.quantity
-                && amountOfReturnableItem == that.amountOfReturnableItem
-                && amountOfReturnedItem == that.amountOfReturnedItem
+                && amountOfReturnableItems == that.amountOfReturnableItems
+                && amountOfReturnedItems == that.amountOfReturnedItems
                 && Objects.equals(articleId, that.articleId)
                 && Objects.equals(artistName, that.artistName)
                 && Objects.equals(album, that.album)
@@ -105,6 +105,6 @@ public class InvoiceLineDTO {
     @Override
     public int hashCode() {
         return Objects.hash(articleId, artistName, album, medium, quantity,
-                amountOfReturnableItem, amountOfReturnedItem, price);
+                amountOfReturnableItems, amountOfReturnedItems, price);
     }
 }
