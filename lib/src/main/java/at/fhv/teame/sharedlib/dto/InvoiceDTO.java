@@ -12,7 +12,7 @@ public class InvoiceDTO {
     private String paymentMethod;
     private String currentRefundable;
     private String totalRefundable;
-    private List<InvoiceLineDTO> invoiceLineItems;
+    private InvoiceLineDTO[] invoiceLineItems;
 
     // Customer Entity
     private String customerFirstName;
@@ -67,7 +67,7 @@ public class InvoiceDTO {
 
         public Builder withInvoiceEntity(String invoiceId, String purchaseDate, String paymentMethod,
                                          String currentRefundable, String totalRefundable,
-                                         List<InvoiceLineDTO> invoiceLineItems) {
+                                         InvoiceLineDTO[] invoiceLineItems) {
             this.instance.invoiceId = invoiceId;
             this.instance.purchaseDate = purchaseDate;
             this.instance.paymentMethod = paymentMethod;
