@@ -85,19 +85,6 @@ public class InvoiceDTO {
             return this;
         }
 
-        @Override
-        public boolean equals(Object o) {
-            if (this == o) return true;
-            if (o == null || getClass() != o.getClass()) return false;
-            Builder builder = (Builder) o;
-            return Objects.equals(instance, builder.instance);
-        }
-
-        @Override
-        public int hashCode() {
-            return Objects.hash(instance);
-        }
-
         public InvoiceDTO build() {
             Objects.requireNonNull(this.instance.invoiceId, "invoiceId must be set in InvoiceDTO");
             Objects.requireNonNull(this.instance.purchaseDate, "purchaseDate must be set in InvoiceDTO");
