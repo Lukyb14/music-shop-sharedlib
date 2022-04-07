@@ -18,8 +18,8 @@ public class SoundCarrierDTO implements Serializable {
     private String artist;
     private String genre;
 
-    public static SoundCarrierDTO.Builder builder() {
-        return new SoundCarrierDTO.Builder();
+    public static Builder builder() {
+        return new Builder();
     }
 
     public String getArticleId() {
@@ -83,8 +83,6 @@ public class SoundCarrierDTO implements Serializable {
             Objects.requireNonNull(this.instance.articleId, "articleId must be set in SoundCarrierDTO");
             Objects.requireNonNull(this.instance.medium, "medium must be set in SoundCarrierDTO");
             Objects.requireNonNull(this.instance.price, "price must be set in SoundCarrierDTO");
-            Objects.requireNonNull(this.instance.stock, "stock must be set in SoundCarrierDTO");
-            Objects.requireNonNull(this.instance.nrOfSongs, "nrOfSongs must be set in SoundCarrierDTO");
             Objects.requireNonNull(this.instance.albumName, "albumName must be set in SoundCarrierDTO");
             Objects.requireNonNull(this.instance.artist, "artist must be set in SoundCarrierDTO");
             Objects.requireNonNull(this.instance.genre, "genre must be set in SoundCarrierDTO");
