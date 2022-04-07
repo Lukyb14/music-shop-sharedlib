@@ -48,7 +48,7 @@ public class ShoppingCartDTO implements Serializable {
 
         }
 
-        private Builder withShoppingCartEntity(Map<String, Integer> purchasedItems,
+        public Builder withShoppingCartEntity(Map<String, Integer> purchasedItems,
                                                String paymentMethod,
                                                String customerFirstName,
                                                String customerLastName,
@@ -65,9 +65,6 @@ public class ShoppingCartDTO implements Serializable {
         public ShoppingCartDTO build() {
             Objects.requireNonNull(this.instance.purchasedItems, "purchasedItems must be set in ShoppingCartDTO");
             Objects.requireNonNull(this.instance.paymentMethod, "paymentMethod must be set in ShoppingCartDTO");
-            Objects.requireNonNull(this.instance.customerFirstName, "customerFirstName must be set in ShoppingCartDTO");
-            Objects.requireNonNull(this.instance.customerLastName, "customerLastName must be set in ShoppingCartDTO");
-            Objects.requireNonNull(this.instance.customerAddress, "customerAddress must be set in ShoppingCartDTO");
 
             return this.instance;
         }
