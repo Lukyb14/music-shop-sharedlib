@@ -1,9 +1,10 @@
 package at.fhv.teame.sharedlib.dto;
 
+import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Objects;
 
-public class InvoiceDTO {
+public class InvoiceDTO implements Serializable {
     private static final long serialVersionUID = 6529685098267757690L;
 
     // Invoice Entity
