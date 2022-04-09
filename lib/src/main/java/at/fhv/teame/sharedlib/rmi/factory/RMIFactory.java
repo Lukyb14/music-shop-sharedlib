@@ -1,19 +1,18 @@
 package at.fhv.teame.sharedlib.rmi.factory;
 
-import at.fhv.teame.sharedlib.rmi.PurchaseSoundCarrierService;
-import at.fhv.teame.sharedlib.rmi.SearchCustomerService;
-import at.fhv.teame.sharedlib.rmi.SearchInvoiceService;
-import at.fhv.teame.sharedlib.rmi.SearchSoundCarrierService;
+import at.fhv.teame.sharedlib.rmi.*;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 
 public interface RMIFactory extends Remote {
-    SearchSoundCarrierService createSearchSoundCarrierService() throws RemoteException;
+    SearchSoundCarrierService createSearchSoundCarrierServiceImpl() throws RemoteException;
 
-    PurchaseSoundCarrierService createPurchaseSoundCarrierService() throws RemoteException;
+    PurchaseSoundCarrierService createPurchaseSoundCarrierServiceImpl() throws RemoteException;
 
     SearchCustomerService createSearchCustomerServiceImpl() throws RemoteException;
 
     SearchInvoiceService createSearchInvoiceServiceImpl() throws RemoteException;
+
+    AuthenticationService createSearchAuthenticationServiceImpl() throws RemoteException;
 }
