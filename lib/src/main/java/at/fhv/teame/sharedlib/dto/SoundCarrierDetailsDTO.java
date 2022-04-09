@@ -91,7 +91,6 @@ public class SoundCarrierDetailsDTO implements Serializable {
             Objects.requireNonNull(this.instance.articleId, "articleId must be set in SoundCarrierDTO");
             Objects.requireNonNull(this.instance.medium, "medium must be set in SoundCarrierDTO");
             Objects.requireNonNull(this.instance.price, "price must be set in SoundCarrierDTO");
-            Objects.requireNonNull(this.instance.stock, "stock must be set in SoundCarrierDTO");
             Objects.requireNonNull(this.instance.albumName, "albumName must be set in SoundCarrierDTO");
             Objects.requireNonNull(this.instance.label, "label must be set in SoundCarrierDTO");
             Objects.requireNonNull(this.instance.genre, "genre must be set in SoundCarrierDTO");

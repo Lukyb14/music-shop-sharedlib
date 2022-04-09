@@ -1,8 +1,9 @@
 package at.fhv.teame.sharedlib.dto;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class InvoiceLineDTO {
+public class InvoiceLineDTO implements Serializable {
     private static final long serialVersionUID = 6529685098267757690L;
 
     private String articleId;
@@ -10,7 +11,7 @@ public class InvoiceLineDTO {
     private String album;
     private String medium;
     private int quantity;
-    private int amountOfReturnableItems;
+
     private int amountOfReturnedItems;
     private String price;
 
@@ -38,10 +39,6 @@ public class InvoiceLineDTO {
         return quantity;
     }
 
-    public int getAmountOfReturnableItems() {
-        return amountOfReturnableItems;
-    }
-
     public int getAmountOfReturnedItems() {
         return amountOfReturnedItems;
     }
@@ -62,15 +59,14 @@ public class InvoiceLineDTO {
         }
 
         public Builder withInvoiceLineEntity(String articleId, String artistName, String album,
-                                       String medium, int quantity, int amountOfReturnableItem,
-                                       int amountOfReturnedItem, String price
+                                             String medium, int quantity,
+                                             int amountOfReturnedItem, String price
         ) {
             this.instance.articleId = articleId;
             this.instance.artistName = artistName;
             this.instance.album = album;
             this.instance.medium = medium;
             this.instance.quantity = quantity;
-            this.instance.amountOfReturnableItems = amountOfReturnableItem;
             this.instance.amountOfReturnedItems = amountOfReturnedItem;
             this.instance.price = price;
             return this;
@@ -93,7 +89,6 @@ public class InvoiceLineDTO {
         if (o == null || getClass() != o.getClass()) return false;
         InvoiceLineDTO that = (InvoiceLineDTO) o;
         return quantity == that.quantity
-                && amountOfReturnableItems == that.amountOfReturnableItems
                 && amountOfReturnedItems == that.amountOfReturnedItems
                 && Objects.equals(articleId, that.articleId)
                 && Objects.equals(artistName, that.artistName)
@@ -105,6 +100,6 @@ public class InvoiceLineDTO {
     @Override
     public int hashCode() {
         return Objects.hash(articleId, artistName, album, medium, quantity,
-                amountOfReturnableItems, amountOfReturnedItems, price);
+                amountOfReturnedItems, price);
     }
 }
