@@ -6,6 +6,6 @@ import at.fhv.teame.sharedlib.rmi.exceptions.WithdrawalFailedException;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 
-public interface ReturnSoundCarrierService extends Remote {
+public interface WithdrawSoundCarrierService extends Remote {
     public void withDrawSoundCarrier(WithdrawalDTO withdrawalDTO) throws WithdrawalFailedException, RemoteException;
 }
