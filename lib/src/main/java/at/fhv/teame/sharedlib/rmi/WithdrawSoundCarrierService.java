@@ -7,5 +7,5 @@ import java.rmi.Remote;
 import java.rmi.RemoteException;
 
 public interface WithdrawSoundCarrierService extends Remote {
-    public void withDrawSoundCarrier(WithdrawalDTO withdrawalDTO) throws WithdrawalFailedException, RemoteException;
+    void withDrawSoundCarrier(WithdrawalDTO withdrawalDTO, String sessionId) throws WithdrawalFailedException, RemoteException;
 }

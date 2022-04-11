@@ -5,11 +5,10 @@ import at.fhv.teame.sharedlib.rmi.exceptions.LoginFailedException;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;
-import java.util.UUID;
 
 public interface AuthenticationService extends Remote {
 
     SessionDTO login(String username, String password) throws RemoteException, LoginFailedException;
-    void logout(UUID sessionId) throws RemoteException;
+    void logout(String sessionId) throws RemoteException;
 
 }

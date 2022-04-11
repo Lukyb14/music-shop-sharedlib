@@ -9,6 +9,6 @@ import java.rmi.RemoteException;
 import java.util.Map;
 
 public interface PurchaseSoundCarrierService extends Remote {
-    void confirmPurchase(ShoppingCartDTO shoppingCartDTO) throws PurchaseFailedException, RemoteException;
+    void confirmPurchase(ShoppingCartDTO shoppingCartDTO, String sessionId) throws PurchaseFailedException, RemoteException;
 
 }

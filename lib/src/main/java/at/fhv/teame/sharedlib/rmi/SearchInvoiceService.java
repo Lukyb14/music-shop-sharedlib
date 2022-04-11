@@ -6,5 +6,5 @@ import java.rmi.Remote;
 import java.rmi.RemoteException;
 
 public interface SearchInvoiceService extends Remote {
-    InvoiceDTO invoiceById(String invoiceId) throws RemoteException;
+    InvoiceDTO invoiceById(String invoiceId, String sessionId) throws RemoteException;
 }
