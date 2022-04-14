@@ -1,5 +1,7 @@
 module at.fhv.teame.sharedlib {
     requires java.rmi;
+    requires java.naming;
+    requires activemq.all;
 
     exports at.fhv.teame.sharedlib.dto;
     exports at.fhv.teame.sharedlib.rmi;
