@@ -22,10 +22,6 @@ repositories {
     mavenCentral()
 }
 
-dependencies {
-    implementation 'org.apache.activemq:activemq-all:5.17.0'
-}
-
 tasks.named('test') {
     useJUnitPlatform()
 }
