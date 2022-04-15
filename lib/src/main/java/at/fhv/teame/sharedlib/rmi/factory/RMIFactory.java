@@ -17,4 +17,6 @@ public interface RMIFactory extends Remote {
     AuthenticationService createSearchAuthenticationServiceImpl() throws RemoteException;
 
     WithdrawSoundCarrierService createWithdrawSoundCarrierServiceImpl() throws RemoteException;
+
+    MessageService createMessageServiceImpl() throws RemoteException;
 }
