@@ -10,6 +10,6 @@ import java.util.List;
 public interface MessageService extends Remote {
     void publishMessage(PublishMessageDTO publishMessageDTO, String sessionId) throws RemoteException, PublishingFailedException;
 
-    List<String> allTopics();
+    List<String> allTopics() throws RemoteException;
 }
 
