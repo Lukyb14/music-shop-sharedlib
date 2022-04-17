@@ -15,5 +15,7 @@ public interface MessageService extends Remote {
     List<MessageDTO> fetchMessages(String sessionId) throws RemoteException, ReceiveFailedException, InvalidSessionException;
 
     List<String> allTopics(String sessionId) throws RemoteException, InvalidSessionException;
+
+    void deleteMessage(String id) throws RemoteException, InvalidSessionException;
 }
 
