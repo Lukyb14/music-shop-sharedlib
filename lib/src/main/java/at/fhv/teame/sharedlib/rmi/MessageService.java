@@ -1,6 +1,7 @@
 package at.fhv.teame.sharedlib.rmi;
 
 import at.fhv.teame.sharedlib.dto.MessageDTO;
+import at.fhv.teame.sharedlib.rmi.exceptions.DeletionFailedException;
 import at.fhv.teame.sharedlib.rmi.exceptions.InvalidSessionException;
 import at.fhv.teame.sharedlib.rmi.exceptions.PublishingFailedException;
 import at.fhv.teame.sharedlib.rmi.exceptions.ReceiveFailedException;
@@ -16,6 +17,6 @@ public interface MessageService extends Remote {
 
     List<String> allTopics(String sessionId) throws RemoteException, InvalidSessionException;
 
-    void deleteMessage(String messageId, String sessionId) throws RemoteException, InvalidSessionException;
+    void deleteMessage(String messageId, String sessionId) throws RemoteException, InvalidSessionException, DeletionFailedException;
 }
 
