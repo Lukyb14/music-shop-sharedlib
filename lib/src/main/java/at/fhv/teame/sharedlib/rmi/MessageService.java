@@ -13,7 +13,7 @@ import java.util.List;
 public interface MessageService extends Remote {
     void publishMessage(PublishMessageDTO publishMessageDTO, String sessionId) throws RemoteException, PublishingFailedException, InvalidSessionException;
 
-    List<ReceiveMessageDTO> fetchMessages(String sessionId) throws ReceiveFailedException, InvalidSessionException;
+    List<ReceiveMessageDTO> fetchMessages(String sessionId) throws RemoteException, ReceiveFailedException, InvalidSessionException;
 
     List<String> allTopics(String sessionId) throws RemoteException, InvalidSessionException;
 }
