@@ -8,5 +8,5 @@ import java.rmi.RemoteException;
 import java.util.Map;
 
 public interface WithdrawSoundCarrierService extends Remote {
-    void withdrawSoundCarrier(String invoiceId, Map<String, Integer> soundCarrierReturnAmountMap) throws InvalidSessionException, WithdrawalFailedException, RemoteException;
+    void withdrawSoundCarrier(String invoiceId, Map<String, Integer> soundCarrierReturnAmountMap, String sessionId) throws InvalidSessionException, WithdrawalFailedException, RemoteException;
 }
