@@ -17,6 +17,6 @@ public interface MessageService extends Remote {
 
     List<String> allTopics(String sessionId) throws RemoteException, InvalidSessionException;
 
-    void deleteMessage(String messageId, String sessionId) throws RemoteException, InvalidSessionException, DeletionFailedException;
+    void deleteMessage(String topic, String messageId, String sessionId) throws RemoteException, InvalidSessionException, DeletionFailedException;
 }
 
