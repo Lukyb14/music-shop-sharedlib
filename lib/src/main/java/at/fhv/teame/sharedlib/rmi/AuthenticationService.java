@@ -1,8 +1,8 @@
 package at.fhv.teame.sharedlib.rmi;
 
 import at.fhv.teame.sharedlib.dto.SessionDTO;
-import at.fhv.teame.sharedlib.rmi.exceptions.InvalidSessionException;
-import at.fhv.teame.sharedlib.rmi.exceptions.LoginFailedException;
+import at.fhv.teame.sharedlib.exceptions.InvalidSessionException;
+import at.fhv.teame.sharedlib.exceptions.LoginFailedException;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;

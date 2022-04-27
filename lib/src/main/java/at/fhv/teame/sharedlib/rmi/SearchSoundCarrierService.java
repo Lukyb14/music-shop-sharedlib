@@ -2,7 +2,7 @@ package at.fhv.teame.sharedlib.rmi;
 
 import at.fhv.teame.sharedlib.dto.SoundCarrierDTO;
 import at.fhv.teame.sharedlib.dto.SoundCarrierDetailsDTO;
-import at.fhv.teame.sharedlib.rmi.exceptions.InvalidSessionException;
+import at.fhv.teame.sharedlib.exceptions.InvalidSessionException;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;

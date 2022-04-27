@@ -1,10 +1,10 @@
 package at.fhv.teame.sharedlib.rmi;
 
 import at.fhv.teame.sharedlib.dto.MessageDTO;
-import at.fhv.teame.sharedlib.rmi.exceptions.DeletionFailedException;
-import at.fhv.teame.sharedlib.rmi.exceptions.InvalidSessionException;
-import at.fhv.teame.sharedlib.rmi.exceptions.PublishingFailedException;
-import at.fhv.teame.sharedlib.rmi.exceptions.ReceiveFailedException;
+import at.fhv.teame.sharedlib.exceptions.DeletionFailedException;
+import at.fhv.teame.sharedlib.exceptions.InvalidSessionException;
+import at.fhv.teame.sharedlib.exceptions.PublishingFailedException;
+import at.fhv.teame.sharedlib.exceptions.ReceiveFailedException;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;

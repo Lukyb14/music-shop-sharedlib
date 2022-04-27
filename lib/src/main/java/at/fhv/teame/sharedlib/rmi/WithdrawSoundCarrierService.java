@@ -1,7 +1,7 @@
 package at.fhv.teame.sharedlib.rmi;
 
-import at.fhv.teame.sharedlib.rmi.exceptions.InvalidSessionException;
-import at.fhv.teame.sharedlib.rmi.exceptions.WithdrawalFailedException;
+import at.fhv.teame.sharedlib.exceptions.InvalidSessionException;
+import at.fhv.teame.sharedlib.exceptions.WithdrawalFailedException;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;
