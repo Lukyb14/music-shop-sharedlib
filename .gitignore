@@ -38,6 +38,3 @@ out/
 
 ### MacOS ###
 .DS_Store
-
-### Maven ###
-/target/
