@@ -1,0 +1,31 @@
+plugins {
+    id 'java'
+    id 'maven-publish'
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            groupId = 'at.fhv.teame'
+            artifactId = 'music-shop-sharedlib'
+            version = '1.0.0'
+
+            from components.java
+        }
+    }
+}
+
+group 'at.fhv.teame.sharedlib'
+
+repositories {
+    // Use Maven Central for resolving dependencies.
+    mavenCentral()
+}
+
+dependencies {
+    implementation group: 'javax.ejb', name: 'javax.ejb-api', version: '3.2.2'
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
