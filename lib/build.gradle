@@ -29,3 +29,9 @@ dependencies {
 tasks.named('test') {
     useJUnitPlatform()
 }
+
+jar {
+    manifest {
+        attributes "Automatic-Module-Name": "at.fhv.teame.sharedlib"
+    }
+}
