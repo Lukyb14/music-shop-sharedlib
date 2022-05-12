@@ -1,8 +1,8 @@
 package at.fhv.teame.sharedlib.ejb;
 
 import at.fhv.teame.sharedlib.dto.CustomerDTO;
+
 import javax.ejb.Remote;
-import java.rmi.RemoteException;
 import java.util.List;
 
 @Remote
