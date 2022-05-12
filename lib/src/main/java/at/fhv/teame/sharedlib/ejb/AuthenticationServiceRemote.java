@@ -1,7 +1,6 @@
 package at.fhv.teame.sharedlib.ejb;
 
 import at.fhv.teame.sharedlib.dto.SessionDTO;
-import at.fhv.teame.sharedlib.exceptions.InvalidSessionException;
 import at.fhv.teame.sharedlib.exceptions.LoginFailedException;
 
 import javax.ejb.Remote;
@@ -10,7 +9,4 @@ import javax.ejb.Remote;
 public interface AuthenticationServiceRemote {
     SessionDTO login(String username, String password) throws LoginFailedException;
     void logout(String sessionId);
-
-    void rememberClient(LoggedInClientRemote loggedInClient, String sessionId) throws InvalidSessionException;
-
 }
