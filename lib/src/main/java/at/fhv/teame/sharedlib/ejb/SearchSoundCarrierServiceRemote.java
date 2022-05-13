@@ -3,10 +3,12 @@ package at.fhv.teame.sharedlib.ejb;
 import at.fhv.teame.sharedlib.dto.SoundCarrierDTO;
 import at.fhv.teame.sharedlib.dto.SoundCarrierDetailsDTO;
 
+import javax.ejb.Local;
 import javax.ejb.Remote;
 import java.util.List;
 
 @Remote
+@Local
 public interface SearchSoundCarrierServiceRemote {
     List<SoundCarrierDTO> soundCarriersByAlbumName(String album, int pageNr);
 
