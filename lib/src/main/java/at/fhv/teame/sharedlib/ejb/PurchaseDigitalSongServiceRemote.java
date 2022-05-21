@@ -7,5 +7,5 @@ import java.util.Map;
 
 @Remote
 public interface PurchaseDigitalSongServiceRemote {
-    void purchaseSong(Map<String, Integer> purchasedSongs, String email, String creditCardDetails) throws PurchaseFailedException;
+    void purchaseSong(Map<String, Integer> purchasedSongs, String email, String cvc) throws PurchaseFailedException;
 }

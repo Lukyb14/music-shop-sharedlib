@@ -13,7 +13,7 @@ public interface SearchCustomerServiceRemote {
 
     List<CustomerDTO> getCustomerByFamilyName(String familyName, int pageNr);
 
-    Optional<CustomerDTO> getCustomerByEmailAndCvc(String email, String cvc);
+    CustomerDTO getCustomerByEmailAndCvc(String email, String cvc);
 
     int totResultsByFullName(String givenName, String familyName);
 
