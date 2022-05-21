@@ -4,12 +4,15 @@ import at.fhv.teame.sharedlib.dto.CustomerDTO;
 
 import javax.ejb.Remote;
 import java.util.List;
+import java.util.Optional;
 
 @Remote
 public interface CustomerServiceRemote {
     List<CustomerDTO> getCustomerByFullName(String givenName, String familyName, int pageNr);
 
     List<CustomerDTO> getCustomerByFamilyName(String familyName, int pageNr);
+
+    Optional<CustomerDTO> getCustomerByEmailAndCreditCard(String email, String creditcard);
 
     int totResultsByFullName(String givenName, String familyName);
 
