@@ -7,9 +7,9 @@ import java.util.List;
 
 @Remote
 public interface SearchDigitalSongServiceRemote {
-    List<DigitalSongDTO> digitalSongByTitle(String title);
+    List<DigitalSongDTO> digitalSongByTitle(String title, int pageNr);
 
-    List<DigitalSongDTO> digitalSongByArtist(String artist);
+    List<DigitalSongDTO> digitalSongByArtist(String artist, int pageNr);
 
-    List<DigitalSongDTO> digitalSongByGenre(String genre);
+    List<DigitalSongDTO> digitalSongByGenre(String genre, int pageNr);
 }
