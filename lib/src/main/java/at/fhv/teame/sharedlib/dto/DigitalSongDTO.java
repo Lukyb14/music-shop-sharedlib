@@ -19,6 +19,30 @@ public class DigitalSongDTO implements Serializable {
 
     private DigitalSongDTO() {}
 
+    public String artist() {
+        return artist;
+    }
+
+    public String title() {
+        return title;
+    }
+
+    public String genre() {
+        return genre;
+    }
+
+    public String duration() {
+        return duration;
+    }
+
+    public String releaseDate() {
+        return releaseDate;
+    }
+
+    public String price() {
+        return price;
+    }
+
     public static class Builder {
         private final DigitalSongDTO instance;
 
