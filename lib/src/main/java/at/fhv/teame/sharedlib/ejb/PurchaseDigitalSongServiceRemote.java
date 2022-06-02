@@ -9,5 +9,5 @@ import java.util.List;
 
 @Remote
 public interface PurchaseDigitalSongServiceRemote {
-    void purchaseSong(List<String> purchasedSongs, String email, String cvc) throws InvalidCredentialsException, PurchaseFailedException;
+    void purchaseDigitalSong(String userId, List<String> purchasedSongs, String creditCardNumber, String cvc) throws InvalidCredentialsException, PurchaseFailedException;
 }
